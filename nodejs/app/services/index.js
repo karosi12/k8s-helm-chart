@@ -13,7 +13,7 @@ const getAzureBlobStorageContent = async (req, res) => {
       defaultAzureCredential
     );
     logger.info(`blobServiceClient => ${JSON.stringify(blobServiceClient)}`)
-    return res.status(200).send({statusCode: 200, data, message: 'success'})   
+    return res.status(200).send({statusCode: 200, data: blobServiceClient, message: 'success'})   
   } catch (error) {
     logger.info(`Internal server error => ${error.message}`)
     return res.status(500).send(Responses.error(500, "Internal server error")); 
